@@ -1,0 +1,27 @@
+# GraphQL schema example
+
+type Product {
+  id: ID!
+  name: String!,
+  description: String!
+}
+
+input ProductInput {
+  name: String,
+  description: String
+}
+
+type Order {
+  id: ID!,
+  products: [Product]!
+}
+
+type Query {
+  orders: [Order]
+  products: [Product]
+  order(id: ID) : Order
+}
+
+type Mutation {
+  createProduct(input: ProductInput!): Product!
+}
